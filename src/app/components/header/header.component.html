@@ -1,10 +1,13 @@
 <header>
-    <button >
-      <img src="assets/imagens/logo.png" alt="Logo da aplicação GenericFlix">
-    </button>
-    <div>
-      <a href="https://github.com/LeonardoLosso" target="_blank">Sobre</a>
-      <a href="https://www.linkedin.com/in/leonardolosso/" target="_blank">Contato</a>
+  <button (click)="irParaTelaInicial()">
+    <img src="assets/images/logo.png" alt="Logo da aplicação">
+  </button>
+  <div class="wrap">
+    <div class="search">
+       <input type="text" class="searchTerm" placeholder="O que vai assistir?">
+       <button type="submit" class="searchButton">
+         <i class="lupa"><img src="assets/images/lupe.svg"></i>
+      </button>
     </div>
-  </header>
-  
+ </div>
+</header>

@@ -1,0 +1,33 @@
+section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+}
+
+.mensagem-erro {
+    color: #d7171e;
+}
+
+.container-card {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.imagens {
+    display: flex;
+}
+
+.ilustracao {
+    margin-top: 72px;
+    margin-left: 130px;
+    margin-right: 64px;
+}
+
+.titulo {
+    margin-top: 72px;
+    margin-left: 64px;
+}

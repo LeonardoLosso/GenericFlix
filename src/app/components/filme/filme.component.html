@@ -1,1 +1,23 @@
-<p>filme works!</p>
+<div class="card">
+  <figure class="poster-box card-banner" *ngIf="filme?.poster_path else semCapa">
+    <img src="https://image.tmdb.org/t/p/w220_and_h330_face{{ filme.poster_path }}" alt="Capa do filme">
+  </figure>
+
+  <h4 class="title">{{ filme.title }}</h4>
+
+  <div class="meta-container">
+    <div class="meta-list">
+      <div class="meta-item">
+        <img src="assets/images/star-18.png" alt="avaliação">
+        <span class="span">{{ filme.vote_average | number: '1.1-1'}}</span>
+      </div>
+    </div>
+    <div class="card-badge">{{ filme.release_date | date: 'yyyy'}}</div>
+  </div>
+  <a href="" class="card-btn" title="{{filme.title}}"></a>
+</div>
+
+
+<ng-template #semCapa>
+  <img src="assets/images/capa-indisponivel.png" alt="Capa do filme">
+</ng-template>

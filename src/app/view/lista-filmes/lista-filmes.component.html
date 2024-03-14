@@ -1,1 +1,10 @@
-<p>lista-filmes works!</p>
+<section class="container">
+    <div class="resultados mensagem-erro" *ngIf="mensagemErro">
+        {{ mensagemErro }}
+    </div>
+    <div class="container-card">
+        <div *ngFor="let filme of listaFilmes">
+            <app-filme [filme]="filme"></app-filme>
+        </div>
+    </div>
+</section>

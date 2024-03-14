@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* h1,
@@ -16,6 +17,7 @@ html {
 
 body {
     padding-bottom: 83px;
+    background-color: #383838;
 }
 
 .container {
@@ -25,7 +27,6 @@ body {
     padding-bottom: 1rem;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 1rem;
 }
 
 button:hover {
