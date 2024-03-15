@@ -1,4 +1,7 @@
-<section class="container">
+<section class="container" *ngIf="listaFilmes else loading">
+
+    <app-carrossel-filmes [filmes]="listaCarrossel"></app-carrossel-filmes>
+
     <div class="resultados mensagem-erro" *ngIf="mensagemErro">
         {{ mensagemErro }}
     </div>
@@ -8,3 +11,13 @@
         </div>
     </div>
 </section>
+
+<ng-template #loading>
+    <div class="loading">
+        <div class="loading-spinner">
+            <img src="assets/images/loading.png" alt="Carregando...">
+        </div>
+        <h4><strong>Carregando</strong></h4>
+    </div>
+
+</ng-template>

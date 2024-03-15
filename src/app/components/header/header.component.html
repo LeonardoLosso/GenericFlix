@@ -2,12 +2,9 @@
   <button (click)="irParaTelaInicial()">
     <img src="assets/images/logo.png" alt="Logo da aplicação">
   </button>
-  <div class="wrap">
-    <div class="search">
-       <input type="text" class="searchTerm" placeholder="O que vai assistir?">
-       <button type="submit" class="searchButton">
-         <i class="lupa"><img src="assets/images/lupe.svg"></i>
-      </button>
+  <button (click)="irParaBusca()" class="searchButton">
+    <div class="wrap" [ngClass]="isSearch()">
+      <i class="lupa"><img src="assets/images/lupe.svg"></i>
     </div>
- </div>
+  </button>
 </header>

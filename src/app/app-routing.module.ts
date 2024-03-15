@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListaFilmesComponent } from './view/lista-filmes/lista-filmes.component';
+import { BuscarFilmeComponent } from './view/buscar-filme/buscar-filme.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   , {
     path: 'listaFilmes'
     , component: ListaFilmesComponent
+  }
+  , {
+    path: 'search'
+    , component: BuscarFilmeComponent
   }
 ];
 

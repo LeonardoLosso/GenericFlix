@@ -1,0 +1,47 @@
+<section class="container">
+
+    <div class="search-container">
+        <div class="search-box" [ngClass]="retornaOutline()">
+            <div class="loupe">
+                <i class="icon">
+                    <img src="assets/images/lupe.svg" width="24">
+                </i>
+            </div>
+            <input 
+                class="search-field" 
+                maxlength="75" 
+                placeholder="Encontre filmes, séries e muito mais" 
+                type="text"
+                [formControl]="valorBusca"
+                (focus)="inverteFoco()"
+                (blur)="inverteFoco()">
+        </div>
+    </div>
+    <div class="container-card" *ngIf="filmesPesquisados$ | async as filmes, else inicial">
+        <div *ngFor="let filme of filmes">
+            <app-filme [filme]="filme"></app-filme>
+        </div>
+    </div>
+    <div class="resultados mensagem-erro" *ngIf="mensagemErro">
+        {{ mensagemErro }}
+    </div>
+    
+</section>
+
+<ng-template #loading>
+    <div class="loading">
+        <div class="loading-spinner">
+            <img src="assets/images/loading.png" alt="Carregando...">
+        </div>
+        <h4><strong>Carregando</strong></h4>
+    </div>
+
+</ng-template>
+
+<ng-template #inicial>
+    <div class="container-card" *ngIf="filmes else loading">
+        <div *ngFor="let filme of filmes">
+            <app-filme [filme]="filme"></app-filme>
+        </div>
+    </div>
+</ng-template>

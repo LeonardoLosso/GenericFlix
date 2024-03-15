@@ -8,7 +8,7 @@
   <div class="meta-container">
     <div class="meta-list">
       <div class="meta-item">
-        <img src="assets/images/star-18.png" alt="avaliação">
+        <img src="assets/images/star-18.png" alt="avaliação" loading="lazy">
         <span class="span">{{ filme.vote_average | number: '1.1-1'}}</span>
       </div>
     </div>
@@ -19,5 +19,7 @@
 
 
 <ng-template #semCapa>
-  <img src="assets/images/capa-indisponivel.png" alt="Capa do filme">
+  <figure class="poster-box card-banner">
+    <img src="assets/images/capa-indisponivel.png" width="220" height="330" alt="Capa do filme">
+  </figure>
 </ng-template>

@@ -8,9 +8,21 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
+  private isHomePage: boolean = true;
+
   constructor(private router: Router){}
 
   irParaTelaInicial(){
-    this.router.navigate([this.router.url]);
+    this.isHomePage = true;
+    this.router.navigate(['']);
+  }
+
+  irParaBusca(){
+    this.isHomePage = false;
+    this.router.navigate(['/search']);
+  }
+
+  isSearch(): string {
+    return !this.isHomePage ? 'search-page' : '';
   }
 }

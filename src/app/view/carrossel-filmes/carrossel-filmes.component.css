@@ -1,0 +1,111 @@
+.container-banner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.slider {
+    margin: 0 auto;
+    width: 1560px;
+    height: 427px;
+    overflow: hidden;
+    box-shadow: 10px 10px 15px black;
+    border-radius: 15px;
+
+}
+
+.slides {
+    width: 400%;
+    height: 427px;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    width: 25%;
+    position: relative;
+    transition: 1s;
+}
+
+.slide .banner {
+    width: 1560px;
+}
+
+.manual-navigation {
+    position: absolute;
+    width: 1560px;
+    margin-top: -135px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.manual-btn {
+    padding: 5px;
+    cursor: pointer;
+    transition: 1s;
+    margin-right: 20px;
+}
+.manual-btn img {
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.manual-btn:hover img {
+    transform: scale(110%);
+    box-shadow: 2px 2px 8px black;
+    opacity: 100%;
+}
+
+#radio1:checked~.first {
+    margin-left: 0;
+}
+
+#radio2:checked~.first {
+    margin-left: -25%;
+}
+
+#radio3:checked~.first {
+    margin-left: -50%;
+}
+
+#radio4:checked~.first {
+    margin-left: -75%;
+}
+
+.select img {
+    box-shadow: 2px 2px 8px black;
+    transform: scale(110%);
+}
+
+.unselect {
+    opacity: 50%;
+}
+
+
+.content {
+    color: white;
+    position: absolute;
+    width: 50%;
+    background-color: #00000028;
+    padding: 20px;
+    border-radius: 15px 0;
+}
+
+.info-container {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+.card{
+    background-color: #313131;
+    padding: 3px;
+}
+
+.vote {
+    margin-left: 5px;
+}

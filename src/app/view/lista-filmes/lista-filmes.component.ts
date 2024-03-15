@@ -8,26 +8,34 @@ import { FilmesService } from 'src/app/services/filmes.service';
   templateUrl: './lista-filmes.component.html',
   styleUrls: ['./lista-filmes.component.css']
 })
-export class ListaFilmesComponent implements OnInit, OnDestroy{
+export class ListaFilmesComponent implements OnInit, OnDestroy {
 
+  private subscription!: Subscription;
   mensagemErro: string = '';
-  subscription!: Subscription;
   listaFilmes!: Filme[];
+  listaCarrossel!: Filme[];
 
-  constructor(private service: FilmesService){}
+  constructor(private service: FilmesService) { }
 
   ngOnInit(): void {
-    // this.service.obterEmCartaz().subscribe({
-    //   next: result => {
-    //     this.listaFilmes = result?.results;
-    //   }
-    //   , error: erro => {
-    //     this.mensagemErro = 'Alguma coisa deu errado. Por favor tente novamente'
-    //   }
-    // });
+    this.subscription = this.emCartaz();
+
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  private emCartaz(): Subscription{
+    return this.service.obterEmCartaz().subscribe({
+      next: result => {
+        this.listaFilmes = result?.results;
+
+        this.listaCarrossel = this.listaFilmes.slice(0, 4);
+      }
+      , error: erro => {
+        this.mensagemErro = 'Alguma coisa deu errado. Por favor tente novamente';
+      }
+    });
   }
 }

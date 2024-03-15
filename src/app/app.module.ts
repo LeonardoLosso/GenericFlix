@@ -10,6 +10,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FilmeComponent } from './components/filme/filme.component';
 import { ListaFilmesComponent } from './view/lista-filmes/lista-filmes.component';
 import { CarrosselFilmesComponent } from './view/carrossel-filmes/carrossel-filmes.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilmeDetalheComponent } from './view/filme-detalhe/filme-detalhe.component';
+import { BuscarFilmeComponent } from './view/buscar-filme/buscar-filme.component';
 
 
 @NgModule({
@@ -20,12 +23,16 @@ import { CarrosselFilmesComponent } from './view/carrossel-filmes/carrossel-film
     FooterComponent,
     FilmeComponent,
     ListaFilmesComponent,
-    CarrosselFilmesComponent
+    CarrosselFilmesComponent,
+    FilmeDetalheComponent,
+    BuscarFilmeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

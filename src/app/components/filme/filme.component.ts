@@ -10,5 +10,3 @@ export class FilmeComponent {
   @Input() filme!: Filme
 }
 
-
-// https://media.themoviedb.org/t/p/w1920_and_h427_multi_faces -> Imagem de fundo do scrollable

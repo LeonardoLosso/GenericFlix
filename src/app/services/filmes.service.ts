@@ -23,8 +23,36 @@ export class FilmesService {
 
     const params = new HttpParams()
       .append('language', 'pt-BR')
-      .append('page', 1);
+      .append('page', 1)
+      .append('region', 'BR');
 
     return this.http.get<RetornoAPILista>(`${this.API.URL}/now_playing`, { headers, params });
+  }
+
+  obterPopulares(): Observable<RetornoAPILista> {
+    const headers = new HttpHeaders()
+      .set('accept', 'application/json')
+      .set('Authorization', `Bearer ${this.API.TOKEN}`);
+
+    const params = new HttpParams()
+      .append('language', 'pt-BR')
+      .append('page', 1)
+      .append('region', 'BR');
+
+    return this.http.get<RetornoAPILista>(`${this.API.URL}/popular`, { headers, params });
+  }
+
+  buscarFilme(valor: string): Observable<RetornoAPILista> {
+    const headers = new HttpHeaders()
+      .set('accept', 'application/json')
+      .set('Authorization', `Bearer ${this.API.TOKEN}`);
+
+    const params = new HttpParams()
+      .append('query', valor)
+      .append('language', 'pt-BR')
+      .append('page', 1)
+      .append('region', 'BR');
+
+    return this.http.get<RetornoAPILista>(`https://api.themoviedb.org/3/search/movie`, { headers, params });
   }
 }
