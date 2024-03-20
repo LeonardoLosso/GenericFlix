@@ -11,14 +11,17 @@ import { FilmesService } from 'src/app/services/filmes.service';
 export class ListaFilmesComponent implements OnInit, OnDestroy {
 
   private subscription = new Subscription();
-  listaFilmes!: Filme[];
+  listaEmCartaz!: Filme[];
+  listaHypados!: Filme[];
+  listaMelhoresAvaliados!: Filme[];
   listaCarrossel!: Filme[];
 
   constructor(private service: FilmesService) { }
 
   ngOnInit(): void {
     this.emCartaz();
-    
+    this.noHype();
+    this.melhoresAvaliados();
   }
 
   ngOnDestroy(): void {
@@ -29,9 +32,29 @@ export class ListaFilmesComponent implements OnInit, OnDestroy {
     this.subscription.add(
       this.service.obterEmCartaz().subscribe({
         next: result => {
-          this.listaFilmes = result?.results;
+          this.listaEmCartaz = result?.results;
   
-          this.listaCarrossel = this.listaFilmes.slice(0, 4);
+          this.listaCarrossel = this.listaEmCartaz.slice(0, 4);
+        }
+      })
+    );
+  }
+
+  private noHype(){
+    this.subscription.add(
+      this.service.obterPopulares().subscribe({
+        next: result => {
+          this.listaHypados = result?.results;
+        }
+      })
+    );
+  }
+
+  private melhoresAvaliados(){
+    this.subscription.add(
+      this.service.obterMelhoresAvaliados().subscribe({
+        next: result => {
+          this.listaMelhoresAvaliados = result?.results;
         }
       })
     );

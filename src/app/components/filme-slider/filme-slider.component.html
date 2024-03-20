@@ -1,1 +1,12 @@
-<p>filme-slider works!</p>
+<section class="wrapper">
+    <h2>{{ agrupador }}</h2>
+    <div class="slider">
+        <div class="slides" [style.transform]="'translateX(' + (-slideAtual * slideWidth) + 'px)'">
+            <div #slideContainer class="slide" *ngFor="let filme of listaFilmes">
+                <app-filme [filme]="filme"></app-filme>
+            </div>
+        </div>
+        <button class="prev" [ngClass]="verificaPrev()" (click)="prevSlide()">&lt;</button>
+        <button class="next" [ngClass]="verificaNext()" (click)="nextSlide()">&gt;</button>
+    </div>
+</section>

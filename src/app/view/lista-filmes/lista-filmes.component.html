@@ -1,12 +1,13 @@
-<section class="container" *ngIf="listaFilmes else loading">
+<section class="container" *ngIf="listaEmCartaz else loading">
 
-    <app-carrossel-filmes [filmes]="listaCarrossel"></app-carrossel-filmes>
+    <app-carrossel-filmes class="carrossel" [filmes]="listaCarrossel"></app-carrossel-filmes>
     
-    <div class="container-card">
-        <div *ngFor="let filme of listaFilmes">
-            <app-filme [filme]="filme"></app-filme>
-        </div>
-    </div>
+    <app-filme-slider id="emCartaz" class="slider" [listaFilmes]="listaEmCartaz" [agrupador]="'Agora nos cinemas'"></app-filme-slider>
+    
+    <app-filme-slider *ngIf="listaHypados" id="hypados" class="slider" [listaFilmes]="listaHypados" [agrupador]="'Hypados'"></app-filme-slider>
+    
+    <app-filme-slider *ngIf="listaMelhoresAvaliados" id="hypados" class="slider" [listaFilmes]="listaMelhoresAvaliados" [agrupador]="'Melhores avaliados'"></app-filme-slider>
+    
 </section>
 
 <ng-template #loading>

@@ -6,26 +6,15 @@ section {
     min-height: 100%;
 }
 
+.slider{
+    margin-top: 3rem;
+}
+
 .container-card {
     margin-bottom: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.imagens {
-    display: flex;
-}
-
-.ilustracao {
-    margin-top: 72px;
-    margin-left: 130px;
-    margin-right: 64px;
-}
-
-.titulo {
-    margin-top: 72px;
-    margin-left: 64px;
 }
 
 .loading-spinner img {
@@ -54,6 +43,7 @@ section {
     margin-bottom: 20px;
     filter: invert(100%);
 }
-h4{
+
+h4 {
     color: white;
 }

@@ -42,6 +42,19 @@ export class FilmesService {
     return this.http.get<RetornoAPILista>(`${this.API.URL}/popular`, { headers, params });
   }
 
+  obterMelhoresAvaliados(): Observable<RetornoAPILista> {
+    const headers = new HttpHeaders()
+      .set('accept', 'application/json')
+      .set('Authorization', `Bearer ${this.API.TOKEN}`);
+
+    const params = new HttpParams()
+      .append('language', 'pt-BR')
+      .append('page', 1)
+      .append('region', 'BR');
+
+    return this.http.get<RetornoAPILista>(`${this.API.URL}/top_rated`, { headers, params });
+  }
+
   buscarFilme(valor: string): Observable<RetornoAPILista> {
     const headers = new HttpHeaders()
       .set('accept', 'application/json')
