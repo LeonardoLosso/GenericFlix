@@ -1,0 +1,14 @@
+.card-banner img {
+    border-radius: 15px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.644);
+}
+
+.card-banner,
+.nome {
+    margin-bottom: 5px;
+}
+
+.pessoa {
+    height: 265px;
+    max-width: 138px;
+}

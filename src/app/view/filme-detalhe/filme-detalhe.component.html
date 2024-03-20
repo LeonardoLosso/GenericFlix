@@ -1,1 +1,107 @@
-<p>filme-detalhe works!</p>
+<section class="container" *ngIf="filme else loading">
+    <article class="container-painel" id="banner"
+        style="background-image: url('https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces{{ filme.backdrop_path }}');">
+        <div class="container-conteudo">
+            <div class="wrap" [ngStyle]="{
+                    'background-image': 'linear-gradient(to right, ' + 
+                        'rgba(' + rgbPredominante +', 1) calc((50vw - 170px) - 340px), ' +
+                        'rgba(' + rgbPredominante +', 0.84) 50%, ' +
+                        'rgba(' + rgbPredominante +', 0.84) 100%)'
+                }">
+                <section class="conteudo">
+                    <div class="poster">
+                        <div class="image-content">
+                            <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2{{ filme.poster_path }}"
+                                alt="poster">
+                        </div>
+                    </div>
+
+                    <div class="info-wrapper">
+
+                        <div class="info-header">
+                            <h2>
+                                <div class="title">
+                                    {{ filme.title }}
+                                </div>
+                                <span class="release">
+                                    ({{ filme.release_date | date: 'yyyy' }})
+                                </span>
+                            </h2>
+                            <div class="facts">
+                                <span>{{ filme.release_date | date: 'dd/MM/yyyy'}}</span>
+                                <span class="genres">
+                                    <a routerLink="/generos/{{ genre.id }}" *ngFor="let genre of filme.genres">{{
+                                        genre.name }}</a>
+                                </span>
+                                <span>{{ filme.runtime | minutosParaHoras}}</span>
+                            </div>
+                        </div>
+
+                        <div class="info-comunity">
+                            <div class="avaliation-container">
+                                <img src="assets/images/avaliacao-{{retornaAvaliacao()}}.png" class="avaliation-img">
+                                <span class="avaliation">
+                                    <strong>{{ filme.vote_average * 10 | number: '1.1-1' }}%</strong>
+                                </span>
+                            </div>
+                            <span class="avaliation-text">Avaliação dos usuários</span>
+                            <a href="">
+                                <div class="trailer">
+                                    <strong>► Reproduzir trailer</strong>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="info">
+                            <h3 class="tagline margin-info"><i>{{ filme.tagline }}</i></h3>
+                            <h3 class="margin-info">Sinopse</h3>
+                            <div class="sinopse margin-info">
+                                <p>{{ filme.overview }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </article>
+
+</section>
+<section class="detalhes">
+    <article class="creditos" *ngIf="elenco">
+        <h3>Elenco principal</h3>
+
+        <div class="scroller-wrap" [ngClass]="gradient">
+            <div class="hbox-container" (scroll)="scrollerElencoGradient($event)">
+                <app-elenco *ngFor="let pessoa of elenco" [pessoa]="pessoa" class="elenco"></app-elenco>
+            </div>
+        </div>
+    </article>
+    <article class="videos" *ngIf="trailers">
+        <div class="scroller-wrap" [ngClass]="trailerGradient">
+            <div class="hbox-container" (scroll)="scrollerTrailerGradient($event)">
+                <app-trailer *ngFor="let video of trailers" [key]="video.key" class="video"></app-trailer>
+            </div>
+        </div>
+    </article>
+</section>
+
+<!-- <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/{{  }}?autoplay=0"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe> -->
+
+<!-- TRAILERS  'https://api.themoviedb.org/3/movie/693134/videos?language=pt-BR'
+                https://www.youtube.com/embed/{{  }}?autoplay=1-->
+<!-- RELACIONADOS = collection |||| 'https://api.themoviedb.org/3/collection/726871?language=en-US' -->
+<!-- PLATAFORMA |||| 'https://api.themoviedb.org/3/movie/{{id}}/watch/providers' -->
+
+<ng-template #loading>
+    <div class="loading">
+        <div class="loading-spinner">
+            <img src="assets/images/loading.png" alt="Carregando...">
+        </div>
+        <h4><strong>Carregando</strong></h4>
+    </div>
+
+</ng-template>

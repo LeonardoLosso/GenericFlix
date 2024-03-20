@@ -1,0 +1,15 @@
+<div class="pessoa">
+    <figure class="card-banner" *ngIf="pessoa.profile_path else semfoto">
+        <img src="https://media.themoviedb.org/t/p/w138_and_h175_face{{ pessoa.profile_path }}" alt="foto">
+    </figure>
+
+    <h4 class="nome">{{ pessoa.name }}</h4>
+
+    <span class="personagem">{{ pessoa.character }}</span>
+</div>
+
+<ng-template #semfoto>
+    <figure class="poster-box card-banner">
+        <img src="/assets/images/capa-indisponivel.png" width="138" height="175" alt="foto indisponivel">
+    </figure>
+</ng-template>

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RetornoAPILista } from '../models/interfaces';
+import { Creditos, FilmeDetalhe, RetornoAPILista, Videos } from '../models/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +53,39 @@ export class FilmesService {
       .append('page', 1)
       .append('region', 'BR');
 
-    return this.http.get<RetornoAPILista>(`https://api.themoviedb.org/3/search/movie`, { headers, params });
+    return this.http.get<RetornoAPILista>('https://api.themoviedb.org/3/search/movie', { headers, params });
+  }
+
+  obterPorID(id: number): Observable<FilmeDetalhe> {
+    const headers = new HttpHeaders()
+      .set('accept', 'application/json')
+      .set('Authorization', `Bearer ${this.API.TOKEN}`);
+
+    const params = new HttpParams().append('language', 'pt-BR');
+
+    return this.http.get<FilmeDetalhe>(`${this.API.URL}/${id}`, { headers, params });
+  }
+
+  obterCreditos(id: number): Observable<Creditos>{
+
+    const headers = new HttpHeaders()
+      .set('accept', 'application/json')
+      .set('Authorization', `Bearer ${this.API.TOKEN}`);
+
+    const params = new HttpParams()
+      .append('language', 'pt-BR');
+
+    return this.http.get<Creditos>(`${this.API.URL}/${id}/credits`, { headers, params });
+  }
+
+  obterVideos(id: number): Observable<Videos>{
+    const headers = new HttpHeaders()
+      .set('accept', 'application/json')
+      .set('Authorization', `Bearer ${this.API.TOKEN}`);
+
+    const params = new HttpParams()
+      .append('language', 'pt-BR');
+
+    return this.http.get<Videos>(`${this.API.URL}/${id}/videos`, { headers, params });
   }
 }

@@ -41,8 +41,16 @@ export class BuscarFilmeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-
-  populares(): Subscription {
+  
+  inverteFoco() {
+    this.barraFoco = !this.barraFoco;
+  }
+  
+  retornaOutline(): string {
+    return this.barraFoco ? 'focus' : '';
+  }
+  
+  private populares(): Subscription {
     return this.service.obterPopulares().subscribe({
       next: result => {
         this.filmes = result?.results;
@@ -52,13 +60,4 @@ export class BuscarFilmeComponent implements OnInit, OnDestroy {
       }
     });
   }
-
-  inverteFoco() {
-    this.barraFoco = !this.barraFoco;
-  }
-
-  retornaOutline(): string {
-    return this.barraFoco ? 'focus' : '';
-  }
-
 }

@@ -29,8 +29,12 @@ export class CarrosselFilmesComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.pararTimer();
   }
+  
+  selecionarCard(index: number): string{
+    return this.cardSelecionado === index ? 'select' : 'unselect';
+  }
 
-  iniciarTimer(): void {
+  private iniciarTimer(): void {
     this.timerSubs = timer(5000).subscribe(() => {
       this.ativarFilme(
         this.cardSelecionado + 1
@@ -38,16 +42,13 @@ export class CarrosselFilmesComponent implements OnInit, OnDestroy {
     });
   }
 
-  pararTimer(): void {
+  private pararTimer(): void {
     this.timerSubs?.unsubscribe();
   }
 
-  ativarFilme(index: number): void {
+  private ativarFilme(index: number): void {
     this.cardSelecionado = index;
     this.iniciarTimer();
   }
 
-  selecionarCard(index: number): string{
-    return this.cardSelecionado === index ? 'select' : 'unselect';
-  }
 }

@@ -6,10 +6,6 @@ section {
     min-height: 100%;
 }
 
-.mensagem-erro {
-    color: #d7171e;
-}
-
 .container-card {
     margin-bottom: 2rem;
     display: flex;

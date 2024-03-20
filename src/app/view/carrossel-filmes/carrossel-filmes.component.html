@@ -9,22 +9,24 @@
 
             <div class="slide" [ngClass]="i === 0? 'first' : ''" *ngFor="let filme of filmes; let i = index">
 
-                <div class="content">
-                    <h2 style="font-size: 2.5em;">{{ filme.title }}</h2>
-                    
-                    <div class="info-container">
-                        <div class="card">{{ filme.release_date | date: 'yyyy'}}</div>
-                        <div class="meta-list">
-                            <div class="meta-item">
-                                <img src="assets/images/star-18.png" alt="avaliação" loading="lazy">
-                                <span class="vote">{{ filme.vote_average | number: '1.1-1'}}</span>
+                <div class="wrap-test">
+                    <div class="content">
+                        <h2 style="font-size: 2.5em;">{{ filme.title }}</h2>
+                        
+                        <div class="info-container">
+                            <div class="card">{{ filme.release_date | date: 'yyyy'}}</div>
+                            <div class="meta-list">
+                                <div class="meta-item">
+                                    <img src="assets/images/star-18.png" alt="avaliação" loading="lazy">
+                                    <span class="vote">{{ filme.vote_average | number: '1.1-1'}}</span>
+                                </div>
                             </div>
                         </div>
+                        <p class="sinopse">{{ filme.overview }}</p>
                     </div>
-                    <p class="sinopse">{{ filme.overview }}</p>
                 </div>
-                <img src="https://media.themoviedb.org/t/p/w1920_and_h427_multi_faces{{ filme.backdrop_path }}"
-                    class="banner" alt="arte do filme" height="427">
+                <img src="https://media.themoviedb.org/t/p/original{{ filme.backdrop_path }}"
+                    class="banner" alt="arte do filme" >
             </div>
 
         </div>

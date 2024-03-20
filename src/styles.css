@@ -2,13 +2,8 @@
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
 }
-
-/* h1,
-h2,
-h3 {
-    font-family: 'Poppins', sans-serif;
-} */
 
 html {
     position: relative;
@@ -19,7 +14,6 @@ body {
     padding-bottom: 83px;
     background: rgb(0, 0, 0);
     background: linear-gradient(180deg, #000000 0%, #000000 10%, #383838 40%);
-    overflow-x: hidden;
 }
 
 .container {
@@ -35,4 +29,23 @@ button:hover {
     background: #050C42;
     transition: all 0.5s ease-in;
     border: 2px solid #050C42;
+}
+
+::-webkit-scrollbar {
+    border-radius: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #a7a7a7;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: #7c7c7c;
+}
+::-webkit-scrollbar-track:active {
+    background-color: #ffffff07;
+}
+::-webkit-scrollbar-track {
+    background-color: #ffffff00;
 }

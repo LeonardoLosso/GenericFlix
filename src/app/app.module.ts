@@ -13,6 +13,10 @@ import { CarrosselFilmesComponent } from './view/carrossel-filmes/carrossel-film
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilmeDetalheComponent } from './view/filme-detalhe/filme-detalhe.component';
 import { BuscarFilmeComponent } from './view/buscar-filme/buscar-filme.component';
+import { MinutosParaHorasPipe } from './pipes/minutos-para-horas.pipe';
+import { ElencoComponent } from './components/elenco/elenco.component';
+import { TrailerComponent } from './components/trailer/trailer.component';
+import { FilmeSliderComponent } from './components/filme-slider/filme-slider.component';
 
 
 @NgModule({
@@ -25,7 +29,11 @@ import { BuscarFilmeComponent } from './view/buscar-filme/buscar-filme.component
     ListaFilmesComponent,
     CarrosselFilmesComponent,
     FilmeDetalheComponent,
-    BuscarFilmeComponent
+    BuscarFilmeComponent,
+    MinutosParaHorasPipe,
+    ElencoComponent,
+    TrailerComponent,
+    FilmeSliderComponent
   ],
   imports: [
     BrowserModule,
