@@ -123,3 +123,32 @@ export interface Trailer {
     published_at: Date;
     id: string;
 }
+
+
+
+//---------------------------------
+
+
+export interface Plataforma {
+    id:      number;
+    results: Results;
+}
+
+export interface Results {
+    BR: TipoPlataforma;
+}
+
+
+export interface TipoPlataforma {
+    link:      string;
+    buy:       Flatrate[];
+    rent?:     Flatrate[];
+    flatrate?: Flatrate[];
+}
+
+export interface Flatrate {
+    logo_path:        string;
+    provider_id:      number;
+    provider_name:    string;
+    display_priority: number;
+}

@@ -1,0 +1,17 @@
+<section *ngIf="statusModal" class="container">
+    <div class="card">
+        <div class="header-video">
+            <button (click)="fecharModal()" class="botao-fechar">
+                <span>X</span>
+            </button>
+        </div>
+        <div class="video-card" *ngIf="key">
+            <iframe [src]="retornaLink()"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    <div class="overlay"></div>
+</section>

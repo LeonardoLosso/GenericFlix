@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'GenericFlix';
+  modalAberto: boolean = false;
+
+  verificarMenu(evento: boolean) {
+    this.modalAberto = evento;
+  }
 }

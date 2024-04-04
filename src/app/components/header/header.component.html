@@ -2,9 +2,18 @@
   <button (click)="irParaTelaInicial()">
     <img src="assets/images/logo.png" alt="Logo da aplicação">
   </button>
-  <button (click)="irParaBusca()" class="searchButton">
-    <div class="wrap" [ngClass]="isSearch()">
-      <i class="lupa"><img src="assets/images/lupe.svg"></i>
-    </div>
-  </button>
+  <div class="wrap">
+    <button (click)="irParaBusca()" class="searchButton">
+      <div class="wrap" [ngClass]="isSearch()">
+        <i class="lupa"><img src="assets/images/lupe.svg"></i>
+      </div>
+    </button>
+
+    <button (click)="irParaMenu()" class="menu">
+      <div class="wrap" [ngClass]="isMenu()">
+        <i class="lupa"><img src="assets/images/bars-solid.svg"></i>
+      </div>
+    </button>
+    
+  </div>
 </header>

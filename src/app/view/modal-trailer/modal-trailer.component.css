@@ -1,0 +1,51 @@
+.card {
+    display: block;
+    min-height: 30rem;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    z-index: 11;
+}
+
+.video-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.overlay {
+    background: #000;
+    height: 100vh;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 10;
+}
+
+.botao-fechar {
+    width: 24px;
+    height: 24px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    border: none;
+    color: #a7a7a7;
+    cursor: pointer;
+    background: none;
+}
+.header-video{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+iframe {
+    width: 60vw;
+    height: calc(60vw * (869 / 1546));
+    max-width: 1546px;
+    max-height: 869px;
+}

@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FilmesService } from 'src/app/services/filmes.service';
 import { ActivatedRoute } from '@angular/router';
-import { Elenco, FilmeDetalhe, Trailer } from 'src/app/models/interfaces';
+import { Elenco, FilmeDetalhe, TipoPlataforma, Trailer } from 'src/app/models/interfaces';
 
 @Component({
   selector: 'app-filme-detalhe',
@@ -17,9 +17,10 @@ export class FilmeDetalheComponent implements OnInit, OnDestroy {
   filme!: FilmeDetalhe;
   elenco!: Elenco[];
   trailers!: Trailer[];
+  tipoPlataforma!: TipoPlataforma;
   gradient = 'is-faded'; 
-  trailerGradient = 'is-faded'; 
-
+  trailerGradient = 'is-faded';
+  modalAberto: boolean = false;
 
   constructor(
     private service: FilmesService
@@ -32,6 +33,7 @@ export class FilmeDetalheComponent implements OnInit, OnDestroy {
       this.obterFilme(id);
       this.obterElenco(id);
       this.obterTrailers(id);
+      this.obterPlataformas(id);
     }
   }
 
@@ -39,6 +41,9 @@ export class FilmeDetalheComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  onModalChange(evento: boolean){
+    this.modalAberto = evento;
+  }
 
   retornaAvaliacao(): string {
     if (this.filme.vote_average > 6.5) {
@@ -115,6 +120,24 @@ export class FilmeDetalheComponent implements OnInit, OnDestroy {
         next: result => {
           this.trailers = result?.results;
           this.trailerGradient = this.trailers.length === 1 ? 'is-hidden' : 'is-faded';
+        }
+        , error: () => {
+          console.log('DEU RUIM MLK');
+        }
+      })
+    );
+  }
+
+  private obterPlataformas(id: string){
+    
+    this.subscription.add(
+
+      this.service.obterPlataformas(parseInt(id)).subscribe({
+        next: result => {
+          this.tipoPlataforma = result?.results?.BR;
+          this.trailerGradient = this.trailers.length === 1 ? 'is-hidden' : 'is-faded';
+
+          console.log(this.tipoPlataforma);
         }
         , error: () => {
           console.log('DEU RUIM MLK');

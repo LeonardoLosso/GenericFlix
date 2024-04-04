@@ -45,11 +45,11 @@
                                 </span>
                             </div>
                             <span class="avaliation-text">Avaliação dos usuários</span>
-                            <a href="">
+                            <button class="btntrailer" (click)="onModalChange(true)">
                                 <div class="trailer">
                                     <strong>► Reproduzir trailer</strong>
                                 </div>
-                            </a>
+                            </button>
                         </div>
 
                         <div class="info">
@@ -65,34 +65,26 @@
         </div>
     </article>
 
-</section>
-<section class="detalhes">
-    <article class="creditos" *ngIf="elenco">
-        <h3>Elenco principal</h3>
-
-        <div class="scroller-wrap" [ngClass]="gradient">
-            <div class="hbox-container" (scroll)="scrollerElencoGradient($event)">
-                <app-elenco *ngFor="let pessoa of elenco" [pessoa]="pessoa" class="elenco"></app-elenco>
+    <section class="detalhes">
+        <article class="creditos" *ngIf="elenco">
+            <h3>Elenco principal</h3>
+    
+            <div class="scroller-wrap" [ngClass]="gradient">
+                <div class="hbox-container" (scroll)="scrollerElencoGradient($event)">
+                    <app-elenco *ngFor="let pessoa of elenco" [pessoa]="pessoa" class="elenco"></app-elenco>
+                </div>
             </div>
-        </div>
-    </article>
-    <article class="videos" *ngIf="trailers">
-        <div class="scroller-wrap" [ngClass]="trailerGradient">
-            <div class="hbox-container" (scroll)="scrollerTrailerGradient($event)">
-                <app-trailer *ngFor="let video of trailers" [key]="video.key" class="video"></app-trailer>
+        </article>
+        <article class="videos" *ngIf="trailers">
+            <div class="scroller-wrap" [ngClass]="trailerGradient">
+                <div class="hbox-container" (scroll)="scrollerTrailerGradient($event)">
+                    <app-trailer *ngFor="let video of trailers" [key]="video.key" class="video"></app-trailer>
+                </div>
             </div>
-        </div>
-    </article>
+        </article>
+    </section>
 </section>
 
-<!-- <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/{{  }}?autoplay=0"
-    title="YouTube video player" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe> -->
-
-<!-- TRAILERS  'https://api.themoviedb.org/3/movie/693134/videos?language=pt-BR'
-                https://www.youtube.com/embed/{{  }}?autoplay=1-->
 <!-- RELACIONADOS = collection |||| 'https://api.themoviedb.org/3/collection/726871?language=en-US' -->
 <!-- PLATAFORMA |||| 'https://api.themoviedb.org/3/movie/{{id}}/watch/providers' -->
 
@@ -105,3 +97,7 @@
     </div>
 
 </ng-template>
+
+<div *ngIf="modalAberto">
+    <app-modal-trailer [key]="trailers[0].key" (mudouModal)="onModalChange($event)"></app-modal-trailer>
+</div>

@@ -17,6 +17,7 @@ import { MinutosParaHorasPipe } from './pipes/minutos-para-horas.pipe';
 import { ElencoComponent } from './components/elenco/elenco.component';
 import { TrailerComponent } from './components/trailer/trailer.component';
 import { FilmeSliderComponent } from './components/filme-slider/filme-slider.component';
+import { ModalTrailerComponent } from './view/modal-trailer/modal-trailer.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FilmeSliderComponent } from './components/filme-slider/filme-slider.com
     MinutosParaHorasPipe,
     ElencoComponent,
     TrailerComponent,
-    FilmeSliderComponent
+    FilmeSliderComponent,
+    ModalTrailerComponent
   ],
   imports: [
     BrowserModule,

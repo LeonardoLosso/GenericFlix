@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Creditos, FilmeDetalhe, RetornoAPILista, Videos } from '../models/interfaces';
+import { Creditos, FilmeDetalhe, Plataforma, RetornoAPILista, Videos } from '../models/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -100,5 +100,16 @@ export class FilmesService {
       .append('language', 'pt-BR');
 
     return this.http.get<Videos>(`${this.API.URL}/${id}/videos`, { headers, params });
+  }
+
+  obterPlataformas(id: number): Observable<Plataforma>{
+    const headers = new HttpHeaders()
+      .set('accept', 'application/json')
+      .set('Authorization', `Bearer ${this.API.TOKEN}`);
+
+    const params = new HttpParams()
+      .append('language', 'pt-BR');
+
+    return this.http.get<Plataforma>(`${this.API.URL}/${id}/watch/providers`, { headers, params });
   }
 }

@@ -10,6 +10,7 @@ footer {
     align-items: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
+    z-index: 999;
 }
 
 span {

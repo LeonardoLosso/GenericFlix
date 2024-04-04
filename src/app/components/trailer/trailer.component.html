@@ -1,9 +1,12 @@
 <section class="container-card">
     <div class="video-card" style="background-image: url('https://i.ytimg.com/vi/{{ key }}/hqdefault.jpg');">
-        <a href="" class="video-link">
+        <button class="video-link" (click)="onModalChange(true)">
             <div class="play-background">
                 <span class="play">►</span>
             </div>
-        </a>
+        </button>
+    </div>
+    <div *ngIf="modalAberto">
+        <app-modal-trailer [key]="key" (mudouModal)="onModalChange($event)"></app-modal-trailer>
     </div>
 </section>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
+  @Output() mudouModal = new EventEmitter<boolean>();
+  private menuAberto = false;
   private isHomePage: boolean = true;
 
   constructor(private router: Router){}
@@ -24,5 +25,13 @@ export class HeaderComponent {
 
   isSearch(): string {
     return !this.isHomePage ? 'search-page' : '';
+  }
+  isMenu(): string {
+    return this.menuAberto ? 'search-page' : '';
+  }
+
+  irParaMenu(){
+    this.menuAberto = !this.menuAberto;
+    this.mudouModal.emit(this.menuAberto);
   }
 }

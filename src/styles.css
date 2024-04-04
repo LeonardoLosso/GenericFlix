@@ -14,6 +14,7 @@ body {
     padding-bottom: 83px;
     background: rgb(0, 0, 0);
     background: linear-gradient(180deg, #000000 0%, #000000 10%, #383838 40%);
+    overflow-x: hidden;
 }
 
 .container {

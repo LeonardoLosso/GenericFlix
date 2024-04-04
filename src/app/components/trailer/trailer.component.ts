@@ -7,4 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class TrailerComponent {
   @Input() key!: string;
+  modalAberto: boolean = false;
+
+  onModalChange(evento: boolean){
+    this.modalAberto = evento;
+  }
 }

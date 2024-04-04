@@ -1,7 +1,7 @@
 header {
   position: fixed;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.842);
+  background-color: rgb(0, 0, 0);
   height: 96px;
   width: 100%;
   display: flex;
@@ -49,4 +49,5 @@ button {
   border-radius: 5px;
   text-align: center;
   transition: 0.3s;
+  margin: 15px;
 }
